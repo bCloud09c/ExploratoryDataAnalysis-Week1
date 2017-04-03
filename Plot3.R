@@ -4,7 +4,11 @@ library(readr)
 library(ggplot2)
 library(tidyr)
 
-df <- read_delim("household_power_consumption.txt", ";", escape_double = FALSE, trim_ws = TRUE)
+temp <- tempfile()
+download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip",temp)
+df <- read_delim(unz(temp, "household_power_consumption.txt"), ";", escape_double = FALSE, trim_ws = TRUE)
+unlink(temp)
+rm(temp)
 
 df <- subset(df, (Date == "2/1/2007" | Date == "2/2/2007"))
 df$Date <- mdy(df$Date)

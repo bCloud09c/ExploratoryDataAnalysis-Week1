@@ -10,15 +10,13 @@ unlink(temp)
 rm(temp)
 
 df <- subset(df, (Date == "2/1/2007" | Date == "2/2/2007"))
-df$Date <- mdy(df$Date)
-df$Timestamp <- with(df, as.POSIXct(paste(Date, Time)))
 
 dev.off()
 dev.new("RStudioGD")
 
-plot(df$Timestamp, df$Global_active_power, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
+hist(df$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power", freq = TRUE, xlim=c(0,6))
 
-dev.copy(png, file = "Plot2.png")
+dev.copy(png, file = "Plot1.png")
 
 dev.off()
 
