@@ -1,5 +1,4 @@
-setwd("C:/Users/brcopela/OneDrive - Microsoft/R/Data Science Specialization/Exploratory Data Analysis/Week 1 Project/")
-
+setwd("C:/Users/brcopela/Documents/R/Work/Week1")
 library(readr)
 library(ggplot2)
 
